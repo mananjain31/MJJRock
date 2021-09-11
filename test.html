@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>T E S T</title>
+	<script type="text/javascript">
+		function getTagName(ele)
+		{
+			console.log(ele.tagName);
+			return ele.tagName;
+		}	
+		function insertAfterNode(ele)
+		{
+			let parentNode = ele.parentNode;
+			let newNode = document.createElement(ele.tagName);
+			console.log(newNode);
+			newNode.innerHTML = "new node inserted after node";
+			parentNode.insertBefore(newNode, ele.nextSibling);
+		}
+		function insertBeforeNode(ele)
+		{
+			let parentNode = ele.parentNode;
+			let newNode = document.createElement(ele.tagName);
+			console.log(newNode);
+			newNode.innerHTML = "new node inserted before node";
+			parentNode.insertBefore(newNode, ele);
+		}
+		function appendAtEnd(ele)
+		{
+			let parentNode = ele.parentNode;
+			let newNode = document.createElement(ele.tagName);
+			console.log(newNode);
+			newNode.innerHTML = "New Inserted at End Node";
+			parentNode.insertBefore(newNode, null);
+		}
+		function displayHidden(ele)
+		{
+			ele.style.visibility = "hidden";
+		}
+		function displayNone(ele)
+		{
+			ele.style.display = "none";
+		}
+	</script>
+	<style type="text/css">
+		div{
+			background: black;
+			color: white;
+			width: 100px;
+			height: 100px;
+			margin: 1rem;
+			padding: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<!-- get tag name -->
+	<div onmousedown="getTagName(this)">get Tag Name</div>
+	<!-- get tag name ends -->
+
+	<!-- insert After Node -->
+	<div onmousedown="insertAfterNode(this)">insert After Node</div>
+	<!-- insert After Node ends -->
+
+	<!-- Append at end  of a div -->
+	<div onmousedown="appendAtEnd(this)">Append at  its end</div>
+	<!-- Append at end  of a div -->
+
+	<!-- Append at end  of a div -->
+	<div onmousedown="displayHidden(this)">Display Hidden</div>
+	<!-- Append at end  of a div -->
+
+	<!-- Append at end  of a div -->
+	<div onmousedown="displayNone(this)">Display None</div>
+	<!-- Append at end  of a div -->
+
+	<!-- insert Before Node -->
+	<div onmousedown="insertBeforeNode(this)">insert Before Node</div>
+	<!-- insert Before Node ends -->
+</body>
+</html>

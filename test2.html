@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test2</title>
+	<script type="text/javascript">
+		function insertAfterNode(ele,tagName,message)
+		{
+			let parentNode = ele.parentNode;
+			let newNode = document.createElement(tagName);
+			console.log(newNode);
+			newNode.innerHTML = "new node inserted after node";
+			parentNode.insertBefore(newNode, ele.nextSibling);
+		}
+		function $$$(query)
+		{
+			let ele =  document.querySelector(query);
+			ele.hide = function()
+			{
+				ele.prevVisibility = ele.style.visibility;
+				ele.style.visibility = "hidden";
+			}
+			ele.show = function()
+			{
+				if(ele.prevVisibility) ele.style.visibility = ele.prevVisibility;
+				ele.style.visibility = "";
+			}
+			return ele;
+		}
+		function hideA()
+		{
+			$$$('#A').hide();
+		}
+		function showA()
+		{
+			$$$('#A').show();
+		}
+	</script>
+</head>
+<body>
+	<div id="A">A DIV</div>
+	<button onclick="hideA()">Hide A</button>
+	<button onclick="showA()">Unhide A</button>
+</body>
+</html>
