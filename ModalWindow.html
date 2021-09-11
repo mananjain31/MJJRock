@@ -4,76 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modal Window</title>
-    <script>
-        window.addEventListener('load', function()
+    <link rel="stylesheet" href="ModalWindow.css">
+    <script type="text/javascript" src="ModalWindow.js"></script>
+    <script type="text/javascript">
+        function show()
         {
-            let modalWindow = document.getElementById("modalWindow");
-            modalWindow.classList.add("showModal");
-        });
-        function closeModal()
+            $$$("myModal").modal();
+        }
+        function show2()
         {
-            let modalWindow = document.getElementById("modalWindow");
-            modalWindow.classList.remove("showModal");
+            $$$("myModal2").modal();
+        }
+        function show3()
+        {
+            $$$("myModal3").modal();
+            setTimeout(() => {
+                $$$("myModal3").closeModal();
+            }, 2000);
+        }
+        function myModal2Load()
+        {
+            console.log("modal 2 has opened");
+        }
+        function myModal2Close()
+        {
+            console.log("modal 2 has closed");
         }
     </script>
     <style>
-         #modalWindow
+        body
         {
-            opacity: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 99;
-            pointer-events: none;
-            transition: all 0.5s ease;
+            background: #aaa;
         }
-        #modalWindow.showModal 
+        .myModal
         {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        #modal
-        {
-            width: 600px;
-            max-width: 100%;
-            color: #FFF;
-            background-color: #15b;
+            background-color: red;
+            color: white;
+            width: 50vw;
             padding: 2rem;
-            position: relative;
-            z-index: 100;
-        }
-        #closeModal
-        {
-            position: absolute;
-            top: 0;
-            right: 0;
         }
     </style>
+    <title>Modal Window Test</title>
 </head>
 <body>
-    <div id="modalWindow">
-        <div id="modal">
-            <button id="closeModal" onclick="closeModal()">X</button>
-            Hello World Hello WorldHello World Hello WorldHello World Hello WorldHello World Hello World
-            Hello World Hello WorldHello World Hello WorldHello World Hello World
-            Hello World Hello WorldHello World Hello WorldHello World Hello WorldHello World Hello World
-            Hello World Hello WorldHello World Hello WorldHello World Hello World
-        </div>
-    </div>
     <h1>
-        Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Impedit id molestias numquam
-        eligendi quis repellendus minus natus vero
-        magnam accusantium eveniet, reprehenderit quia. Ipsam,
-        impedit itaque. Delectus eveniet incidunt
-        molestiae.
+        Lorem ih1sum, dolor sit amet consectetur
     </h1>
-    </body>
+    <button onclick="show()">Click for showing Modal1</button> <br>
+    <button onclick="show2()">Click For Modal2 with "on_modal_load" and "on_modal_close"</button> <br>
+    <button onclick="show3()">Click For Modal3 which will be closed within 2 seconds</button>
+    <div id="myModal" for_modal="true" class="myModal">
+        hello Worldhello Worldhello Worldhello Worldhello Worldhello Worldhello Worldhello World
+        hello Worldhello Worldhello Worldhello Worldhello World
+        hello Worldhello Worldhello Worldhello Worldhello Worldhello World  
+        hello Worldhello Worldhello Worldhello Worldhello Worldhello World
+        hello World
+        hello Worldhello Worldhello Worldhello World
+    </div>
+    <div id="myModal2" for_modal="true" class="myModal" on_modal_load="myModal2Load" on_modal_close="myModal2Close">
+        hello2 hello2 hello2 hello2 hello2 hello2 hello2 hello2 hello2 
+        hello2 hello2 hello2 hello2 hello2 hello2 hello2 vhello2 hello2 hello2 
+        hello2 hello2 hello2 hello2 
+    </div>
+    <div id="myModal3" for_modal="true" class="myModal">
+        bye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye bye
+        bye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye bye
+        bye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye bye
+    </div>
+</body>
 </html>

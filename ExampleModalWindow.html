@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Window</title>
+    <script>
+        window.addEventListener('load', function()
+        {
+            let modalWindow = document.getElementById("modalWindow");
+            modalWindow.classList.add("showModal");
+        });
+        function closeModal()
+        {
+            let modalWindow = document.getElementById("modalWindow");
+            modalWindow.classList.remove("showModal");
+        }
+    </script>
+    <style>
+         #modalWindow
+        {
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 99;
+            pointer-events: none;
+            transition: all 0.5s ease;
+        }
+        #modalWindow.showModal 
+        {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #modal
+        {
+            width: 600px;
+            max-width: 100%;
+            color: #FFF;
+            background-color: #15b;
+            padding: 2rem;
+            position: relative;
+            z-index: 100;
+        }
+        #closeModal
+        {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="modalWindow">
+        <div id="modal">
+            <button id="closeModal" onclick="closeModal()">X</button>
+            Hello World Hello WorldHello World Hello WorldHello World Hello WorldHello World Hello World
+            Hello World Hello WorldHello World Hello WorldHello World Hello World
+            Hello World Hello WorldHello World Hello WorldHello World Hello WorldHello World Hello World
+            Hello World Hello WorldHello World Hello WorldHello World Hello World
+        </div>
+    </div>
+    <h1>
+        Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Impedit id molestias numquam
+        eligendi quis repellendus minus natus vero
+        magnam accusantium eveniet, reprehenderit quia. Ipsam,
+        impedit itaque. Delectus eveniet incidunt
+        molestiae.
+    </h1>
+    </body>
+</html>
