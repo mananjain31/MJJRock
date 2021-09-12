@@ -1,12 +1,12 @@
 window.addEventListener('load', function(){
-    let unfilteredAccordions = document.querySelectorAll(`*[accordion]`);
+    let accordionContainer = document.querySelectorAll(`*[accordion]`);
     let accordions = [];
-    for(let i=0;i<unfilteredAccordions.length;i++)
+    for(let i=0;i<accordionContainer.length;i++)
     {
         accordions.push([]);
-        for(let node of unfilteredAccordions[i].childNodes)
+        for(let node of accordionContainer[i].children)
         {
-            if(node.nodeName != "#text") accordions[i].push(node);
+            accordions[i].push(node);
         }
     }
     console.log(accordions);
