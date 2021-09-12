@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function recur(ele, json)
+        {
+            let children = [...ele.children];
+            for(let child of children)
+            {
+                for(str in json)
+                {
+                    let index = child.textContent.indexOf(`{${str}}`);
+                    if(index != -1)
+                    child.textContent = child.textContent.substring(0,index) + json[str] + child.textContent.substring(index+2+str.length);
+                }
+                recur(child);
+            }
+        }
+        function replaceSomeText()
+        {
+            let xyz = 10;
+            let abc = "manan";
+            let def = "####";
+            recur(document.body, {
+                "xyz" : xyz,
+                "abc" : abc,
+                "def" : def
+            });
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div>{xyz}</div>
+    <span>{abc}</span>
+    <p>{def}</p>
+    <button onclick="replaceSomeText()">Click</button>
+</body>
+</html>

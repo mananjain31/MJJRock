@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        let curlyBracketsVariables = {};
+        function prepareCurlyBracketVariables(ele)
+        {
+            console.log(ele)
+            let children = [...ele.children];
+            for(let child of children)
+            {
+                let textContent = child.textContent;
+                if(textContent.startsWith('{') && textContent.endsWith('}'))
+                {
+                    let varName = child.textContent.substring(1,textContent.length-1);
+                    curlyBracketsVariables[varName] = child;
+                }
+                prepareCurlyBracketVariables(child);
+            }
+        }
+        function setCurlyBracketVariablesValues(json)
+        {
+            for(varName in json)
+            curlyBracketsVariables[varName].textContent = json[varName];
+        }
+        function button1Click()
+        {
+            let xyz = 10;
+            let abc = "manan";
+            let def = "####";
+            setCurlyBracketVariablesValues({
+                xyz : xyz,
+                abc : abc,
+                def : def
+            });
+        }
+        function button2Click()
+        {
+            let xyz = 20;
+            let abc = "jain";
+            let def = "*********";
+            setCurlyBracketVariablesValues({
+                xyz : xyz,
+                abc : abc,
+                def : def
+            });
+        }
+        window.addEventListener('load', ()=>prepareCurlyBracketVariables(document.body));
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div>{xyz}</div>
+    <span>{abc}</span>
+    <p>{def}</p>
+    <button onclick="button1Click()">Button 1</button>
+    <button onclick="button2Click()">Button 2</button>
+</body>
+</html>
