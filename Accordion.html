@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Accordion.js"></script>
+    <style>
+        *[accordion]>*:nth-child(odd)
+        {
+            background-color: brown;
+            color: beige;
+        }
+        *[accordion]>*:nth-child(even)
+        {
+            background-color: orangered;
+            color: beige;
+        }
+        body{
+            color: brown;
+        }
+    </style>
+    <title>Accordion</title>
+</head>
+<body>
+    <h1><u>Accordion 1</u></h1>
+    <div accordion>
+        <div>Heading 1</div>
+        <div>Content 1</div>
+        <div>Heading 2</div>
+        <div>Content 2</div>
+    </div>
+    <hr>
+    <h1><u>Accordion 2</u></h1>
+    <div accordion>
+        <div>2 Heading 1</div>
+        <div>2 Content 1</div>
+        <div>2 Heading 2</div>
+        <div>2 Content 2</div>
+        <div>2 Heading 3</div>
+        <div>
+            <p>2 Some Conent Paragraph</p>
+            <p>2 Another Conent Paragraph</p>
+        </div>
+    </div>
+    <hr>
+    <p>Click on the "Headings" above to reveal their content</p>
+</body>
+</html>
