@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MJJRockTesting</title>
+	<script type="text/javascript" src="../MJJRock.js"></script>
+	<script type="text/javascript">
+		function firstShouldBeAlphabets(ele)
+		{
+			let val = ele.value;
+			for(let i=0;i<3;i++)
+				if( val.charCodeAt(i) < 97 || val.charCodeAt(i) > 122 )
+				{
+					alert("First 3 digits of name must be alphabets");
+					return false;
+				}
+			return true;
+		}
+		$$$("myForm").validateOnSubmit({
+			"required" : 
+			[ 
+				{ "id" : "name" }, 
+				{ "id" : "contactNo", "error" : "Please Provide Contact Number", "placeHolder" : "numberSpan" }
+			],
+			"minLength" : 
+			[
+				{ "id" : "name", "length" : 5 },
+				{ "id" : "contactNo", "error" : "Enter 10 digit Contact Number", "length" : 10 },
+			],
+			"maxLength" : 
+			[
+				{ "id" : "name", "length" : 20, "error" : "Enter a name shorter than 20 characters please" }
+			],
+			"custom" : 
+			[
+				{ "id" : "name", "call" : firstShouldBeAlphabets }
+			]
+		});
+	</script>
+</head>
+<body>
+	<h1>Testing MJJRock</h1>
+	<form action="nowhere" id="myForm">
+		Enter Name <input type="text" id="name"><br>
+		Enter Contact Number <input type="number" id="contactNo"><span id="numberSpan"></span><br>
+		<button type="submit">Submit</button>
+	</form>
+    <br><a href="/">Home</a>
+</body>
+</html>

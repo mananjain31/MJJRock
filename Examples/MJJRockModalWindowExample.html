@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../MJJRock.css">
+    <script type="text/javascript" src="../MJJRock.js"></script>
+    <script type="text/javascript">
+        function show()
+        {
+            $$$("myModal").modal();
+        }
+        function show2()
+        {
+            $$$("myModal2").modal();
+        }
+        function show3()
+        {
+            $$$("myModal3").modal();
+            setTimeout(() => {
+                $$$("myModal3").closeModal();
+            }, 2000);
+        }
+        function myModal2Load()
+        {
+            alert("modal 2 will be open opened");
+        }
+        function myModal2Close()
+        {
+            alert("modal 2 will be closed");
+        }
+    </script>
+    <style>
+        body
+        {
+            background: #aaa;
+        }
+        .myModal
+        {
+            background-color: red;
+            color: white;
+            width: 50vw;
+            padding: 2rem;
+        }
+    </style>
+    <title>Modal Window Test</title>
+</head>
+<body>
+    <h1>
+        MJJRock Modal Window Module
+    </h1>
+    <button onclick="show()">Click for showing Modal1</button> <br>
+    <button onclick="show2()">Click For Modal2 with "on_modal_load" and "on_modal_close"</button> <br>
+    <button onclick="show3()">Click For Modal3 which will be closed within 2 seconds</button>
+    <div id="myModal" modal class="myModal">
+        hello Worldhello Worldhello Worldhello Worldhello Worldhello Worldhello Worldhello World
+        hello Worldhello Worldhello Worldhello Worldhello World
+        hello Worldhello Worldhello Worldhello Worldhello Worldhello World  
+        hello Worldhello Worldhello Worldhello Worldhello Worldhello World
+        hello World
+        hello Worldhello Worldhello Worldhello World
+    </div>
+    <div id="myModal2" modal class="myModal" on_modal_load="myModal2Load" on_modal_close="myModal2Close">
+        hello2 hello2 hello2 hello2 hello2 hello2 hello2 hello2 hello2 
+        hello2 hello2 hello2 hello2 hello2 hello2 hello2 vhello2 hello2 hello2 
+        hello2 hello2 hello2 hello2 
+    </div>
+    <div id="myModal3" modal class="myModal">
+        bye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye bye
+        bye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye bye
+        bye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye byebye bye
+    </div>
+    <br><br><a href="/">Home</a>
+</body>
+</html>

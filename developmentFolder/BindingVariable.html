@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        class $$$class
+        {
+            #model={};
+            set model(json)
+            {
+                if(document.readyState == "complete") this.#setModel(json);
+                window.addEventListener('load', this.#setModel(json));
+            }
+            get model() {return this.#model;}
+            #setModel(json)
+            {
+                console.log("from",this.#model);
+                for(let key in json)
+                {
+                    let elems = document.querySelectorAll(`[bindTo="${key}"]`);
+                    for(let ele of elems) ele.value = json[key];
+                }
+                this.#model = {...this.#model, ...json};
+                console.log("to",this.#model);
+            }
+        }
+        const $$$ = new $$$class();
+        window.addEventListener('load', function()
+        {
+            let elems = document.querySelectorAll(`[bindTo]`);
+            for(ele of elems)
+            {
+                ele.onchange = ele.onkeyup = function(e){
+                    let attrVal = ele.getAttribute("bindTo");
+                    $$$.model = { [attrVal] : e.target.value};
+                }
+            }
+        });
+    </script>
+    <script>
+        let mm = {
+            "num" : 35
+        }
+        $$$.model = mm;
+        function set75ToNum()
+        {
+            $$$.model = {num : 75};
+        }
+        function set99ToInput(){document.getElementById("myInput").value="99";}
+        function testing()
+        {
+            // window.addEventListener('load', ()=>console.log("hello"))
+        }
+    </script>
+</head>
+<body>
+    <input type="text" bindTo="num" id="myInput"/> <br>
+    <p id="myP">Hello</p>
+    <button onclick="alert($$$.model.num)">Alert $$$.model.num</button> <br>
+    <button onclick="set75ToNum()">Set 75 To Num</button> <br>
+    <button onclick="set99ToInput()">Set 99 to myInput</button>
+    <button onclick="testing()">testing</button>
+</body>
+</html>

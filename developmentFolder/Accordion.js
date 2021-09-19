@@ -9,7 +9,6 @@ window.addEventListener('load', function(){
             accordions[i].push(node);
         }
     }
-    console.log(accordions);
     for(let accordion of accordions)
     {
         for(let i=0; i+1<accordion.length;i+=2)

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../MJJRock.js"></script>
+    <script>
+        let myModel = {
+            "city" : "Indore",
+            "salary" : "40000"
+        };
+        $$$.dataModel = myModel;
+        function one()
+        {
+            myModel.city = "Goa";
+            myModel.salary = 65000;
+        }
+        function two()
+        {
+            let c = document.getElementById("ct").value;
+            let s = document.getElementById("sl").value;
+            alert(`Component : (${c},${s})\nModel : (${JSON.stringify(myModel)})`);
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    City <input type="text" id="ct" bind-to="city"> <br>
+    Salary <input type="number" id="sl" bind-to="salary"> <br>
+    <br>
+    <button type="button" onclick="one()">Button 1 - Change Model</button>
+    <button type="button" onclick="two()">Button 2 - Display Everything</button>
+    <br><br><a href="/">Home</a>
+</body>
+</html>

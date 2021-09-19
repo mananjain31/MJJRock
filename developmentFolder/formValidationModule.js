@@ -54,7 +54,7 @@ function $$$(elementId)
                         {
                             for(let req of rules.required)
                             {
-                                if(!minLen.id) throw "Element's Id Not Given for required Validation";
+                                if(!req.id) throw "Element's Id Not Given for required Validation";
                                 let ele = document.getElementById(req.id);
                                 if(!ele.placeHolderNode) createPlaceHolderNode(ele, req);
                                 if(!ele.value || ele.value.trim().length == 0) 
